@@ -12,9 +12,6 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class TranslationsMoney {
 
-    public static void makeValidTransfer(DataHelper.CardInfo firstCard, String valueOf) {
-    }
-
     @Value
     public static class TransferMoney {
         SelenideElement popUpString = $("[data-test-id=amount] input");

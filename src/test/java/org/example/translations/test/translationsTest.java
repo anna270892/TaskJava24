@@ -4,11 +4,10 @@ import org.example.translations.data.DataHelper;
 
 import org.example.translations.page.LoginPage;
 import org.example.translations.page.TranslationsMoney;
-import org.junit.jupiter.api.Assertions;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.open;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -30,10 +29,10 @@ public class translationsTest {
         var dashboardPage = verificationPage.validVerify(verificationCode);
 
         var firstCard = DataHelper.getCard1();
-        var startingBalance1 = dashboardPage.getCardBalance(firstCard);
+        var startingBalance1 = dashboardPage.getFirstCardBalance();
 
         var secondCard = DataHelper.getCard2();
-        var startingBalance2 = dashboardPage.getCardBalance(secondCard);
+        var startingBalance2 = dashboardPage.getTwoCardBalance();
 
         var amount = DataHelper.getPossibleAmount();
         var moneyTransferPage = dashboardPage.cardToTransfer(secondCard);
@@ -45,8 +44,8 @@ public class translationsTest {
         transferMoney.makeValidTransfer(firstCard, String.valueOf(amount));
 
         // Получаем балансы после транзакции
-        var finalBalance1 = dashboardPage.getCardBalance(firstCard);
-        var finalBalance2 = dashboardPage.getCardBalance(secondCard);
+        var finalBalance1 = dashboardPage.getFirstCardBalance();
+        var finalBalance2 = dashboardPage.getTwoCardBalance();
 
         // Проверяем, что балансы изменились согласно ожидаемым значениям
         assertEquals(startingBalance1 - amount, finalBalance1);

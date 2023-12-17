@@ -25,13 +25,6 @@ public class DataHelper {
         return new CardInfo("5559000000000002");
     }
 
-    public static int[] getCardBalances(DashboardPage dashboardPage, CardInfo card1, CardInfo card2) {
-        int balance1 = dashboardPage.getCardBalance(card1);
-        int balance2 = dashboardPage.getCardBalance(card2);
-
-        return new int[]{balance1, balance2};
-    }
-
     public static int getPossibleAmount() {
         return 10000;
     }
