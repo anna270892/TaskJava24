@@ -19,7 +19,7 @@ public class TranslationsMoney {
         SelenideElement transferTo = $("[data-test-id=to]");
         SelenideElement popUpButton = $("[data-test-id=action-transfer]");
         SelenideElement cancelButton = $("[data-test-id=action-cancel]");
-        SelenideElement errorMessage = $("[data-test-id=error-message]");
+        SelenideElement errorMessage = $("[data-test-id=error-notification]");
 
         public void transferMoney(DataHelper.CardInfo cardNumber, String amount) {
             popUpString.val(amount);
@@ -30,10 +30,6 @@ public class TranslationsMoney {
         public DashboardPage makeValidTransfer(DataHelper.CardInfo cardNumber, String amount) {
             transferMoney(cardNumber, amount);
             return new DashboardPage();
-        }
-
-        public void depositError(String expectedText) {
-            errorMessage.shouldHave(exactText(expectedText)).shouldBe(visible, Duration.ofMillis(15));
         }
     }
 }

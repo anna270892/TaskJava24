@@ -1,7 +1,6 @@
 package org.example.translations.data;
 
 import lombok.Value;
-import org.example.translations.page.DashboardPage;
 
 
 public class DataHelper {
@@ -26,10 +25,6 @@ public class DataHelper {
     }
 
     public static int getPossibleAmount() {
-        return 10000;
-    }
-
-    public static int getImpossibleAmount() {
         return 10000;
     }
 
